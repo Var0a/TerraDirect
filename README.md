@@ -30,35 +30,7 @@ Once you deploy this repository, it will be accessible globally at:
 *   **Simulated Real-Time Chat**: Select preset questions and receive simulated, farm-specific answers from Johann, Elise, and Lars in real-time.
 *   **Grading & Review System**: Star ratings and comment forms that recalculate average grades in real-time and persist in `localStorage`.
 
----
 
-## 🛠️ How to Deploy this Web Application to GitHub Pages
-
-To make the website live and accessible globally:
-
-1.  **Initialize Git & Add Files**:
-    Open Git Bash, Command Prompt, or PowerShell in the `presentation/presentation` directory and run:
-    ```bash
-    git init
-    git add .
-    git commit -m "Initial commit of TerraDirect web app demo"
-    ```
-2.  **Link to GitHub**:
-    Create a new **public** repository named `terradirect` on your GitHub account. Then link and push your files:
-    ```bash
-    git branch -M main
-    git remote add origin https://github.com/<your-username>/terradirect.git
-    git push -u origin main
-    ```
-3.  **Enable GitHub Pages**:
-    *   Go to your repository on GitHub.com.
-    *   Click on **Settings** (gear icon) in the top tabs.
-    *   On the left sidebar, click on **Pages** (under the "Code and automation" section).
-    *   Under **Build and deployment**, set **Source** to `Deploy from a branch`.
-    *   Under **Branch**, select `main` and set the folder to `/ (root)`. Click **Save**.
-4.  **Visit Your Live Website**:
-    Wait 1-2 minutes. GitHub will display a message at the top of the Pages settings panel:
-    *   *"Your site is live at: `https://<your-username>.github.io/terradirect/`"*
 
 
 
