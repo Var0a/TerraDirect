@@ -10,7 +10,7 @@ This repository contains the interactive web application demo, visual assets, st
 
 ## 🌐 Live GitHub Pages Demo
 Once you deploy this repository, it will be accessible globally at:
-`(https://var0a.github.io/TerraDirect/)`
+`https://var0a.github.io/TerraDirect/`
 
 ---
 
@@ -60,17 +60,7 @@ To make the website live and accessible globally:
     Wait 1-2 minutes. GitHub will display a message at the top of the Pages settings panel:
     *   *"Your site is live at: `https://<your-username>.github.io/terradirect/`"*
 
----
 
-## 💻 Running the Application Locally on Windows
-
-You can run a lightweight, dependency-free local web server on your Windows machine:
-
-1.  Double-click [start_server.bat](start_server.bat) in the root folder.
-2.  The script will start a local HTTP server on port `8080` (or another free port) and launch the app in your default browser.
-3.  Press **`Ctrl + C`** in the command prompt window to stop the server when done.
-
----
 
 ## 📁 Repository Directory Index
 
