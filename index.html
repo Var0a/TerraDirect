@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TerraDirect - Preserve Family Farming</title>
+  <!-- Modern premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Design system CSS tokens */
+    :root {
+      --font-base: 'Inter', -apple-system, sans-serif;
+      --font-title: 'Outfit', sans-serif;
+
+      /* Standard Warm Organic Palette */
+      --primary-forest: hsl(140, 32%, 18%);
+      --primary-forest-hover: hsl(140, 32%, 12%);
+      --primary-leaf: hsl(145, 45%, 42%);
+      --primary-leaf-hover: hsl(145, 45%, 32%);
+      --accent-gold: hsl(38, 75%, 52%);
+      --accent-gold-hover: hsl(38, 75%, 42%);
+      --bg-cream: hsl(90, 25%, 96%);
+      --bg-white: hsl(90, 20%, 98%);
+      --text-dark: hsl(140, 20%, 12%);
+      --text-muted: hsl(140, 10%, 40%);
+      --border-color: hsl(140, 15%, 85%);
+      --shadow-sm: 0 4px 10px rgba(22, 43, 26, 0.03);
+      --shadow-md: 0 10px 30px rgba(22, 43, 26, 0.06);
+
+      /* Layout variables */
+      --html-font-size: 16px;
+      --button-padding: 12px 24px;
+      --button-height: 48px;
+      --card-padding: 24px;
+      --grid-gap: 30px;
+      --border-radius: 16px;
+      --transition-speed: 0.25s;
+    }
+
+    /* Senior Mode accessibility overrides */
+    body.senior-mode {
+      --html-font-size: 21px;
+      --button-padding: 18px 36px;
+      --button-height: 64px;
+      --card-padding: 32px;
+      --grid-gap: 40px;
+      --border-radius: 20px;
+    }
+
+    /* High Contrast Mode overrides (WCAG AAA) */
+    body.high-contrast {
+      --primary-forest: #000000;
+      --primary-forest-hover: #111111;
+      --primary-leaf: #00ff00;
+      --primary-leaf-hover: #00cc00;
+      --accent-gold: #ffff00;
+      --accent-gold-hover: #cccc00;
+      --bg-cream: #000000;
+      --bg-white: #121212;
+      --text-dark: #ffffff;
+      --text-muted: #e0e0e0;
+      --border-color: #ffff00;
+      --shadow-sm: none;
+      --shadow-md: none;
+    }
+
+    /* Basic Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: font-size var(--transition-speed) ease, background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, padding var(--transition-speed) ease;
+    }
+
+    html {
+      font-size: var(--html-font-size);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-base);
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-bottom: 120px; /* Space for shopping drawer */
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-title);
+      font-weight: 700;
+      color: var(--primary-forest);
+    }
+
+    body.high-contrast h1, body.high-contrast h2, body.high-contrast h3, body.high-contrast h4 {
+      color: white;
+    }
+
+    p {
+      color: var(--text-dark);
+    }
+
+    a {
+      color: var(--primary-leaf);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Accessibility Toolbar */
+    .accessibility-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: var(--primary-forest);
+      color: white;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      border-bottom: 3px solid var(--accent-gold);
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-title);
+      font-weight: 800;
+      font-size: 1.35rem;
+    }
+
+    .brand-logo svg {
+      height: 36px;
+      width: 36px;
+      fill: var(--accent-gold);
+    }
+
+    .access-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn-access {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+
+    .btn-access:hover {
+      border-color: var(--accent-gold);
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-access.active {
+      background-color: var(--accent-gold);
+      color: var(--primary-forest);
+      border-color: var(--accent-gold);
+    }
+
+    /* Mission Statement Banner */
+    .mission-header {
+      background: linear-gradient(135deg, var(--primary-forest), hsl(140, 32%, 10%));
+      color: white;
+      padding: 40px 24px;
+      text-align: center;
+      border-bottom: 5px solid var(--primary-leaf);
+    }
+
+    .mission-container {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mission-tagline {
+      font-family: var(--font-title);
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: var(--accent-gold);
+    }
+
+    .mission-text {
+      font-size: 1.15rem;
+      max-width: 750px;
+      margin: 0 auto;
+      color: hsl(140, 10%, 85%);
+    }
+
+    /* Country and Policy bar */
+    .policy-selector-bar {
+      background-color: var(--bg-white);
+      border-bottom: 2px solid var(--border-color);
+      padding: 15px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      max-width: 1400px;
+      margin: 0 auto;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .country-dropdown-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .country-label {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--primary-forest);
+    }
+
+    .select-country {
+      background-color: var(--bg-cream);
+      border: 2px solid var(--border-color);
+      color: var(--text-dark);
+      padding: 8px 16px;
+      font-size: 0.95rem;
+      font-weight: bold;
+      border-radius: 8px;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .select-country:focus {
+      border-color: var(--primary-leaf);
+    }
+
+    .policy-alert {
+      flex: 1;
+      min-width: 280px;
+      background-color: hsl(90, 30%, 92%);
+      border-left: 5px solid var(--primary-leaf);
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      color: var(--primary-forest);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    body.high-contrast .policy-alert {
+      background-color: black;
+      border: 2px solid var(--accent-gold);
+      color: white;
+    }
+
+    /* Simple Layout Modifiers */
+    body.simple-layout .main-grid {
+      grid-template-columns: 1fr !important;
+    }
+    body.simple-layout .map-card,
+    body.simple-layout .chat-card {
+      display: none;
+    }
+    body.simple-layout .catalog-grid {
+      grid-template-columns: 1fr !important;
+    }
+    body.simple-layout .farm-detail-header {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Main Container & Columns */
+    .app-container {
+      max-width: 1400px;
+      margin: 30px auto;
+      padding: 0 24px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--grid-gap);
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1.9fr;
+      gap: var(--grid-gap);
+      align-items: start;
+    }
+
+    @media (max-width: 1024px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Interactive Map Card */
+    .map-card {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius);
+      padding: var(--card-padding);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .map-svg-container {
+      width: 100%;
+      background-color: hsl(90, 10%, 90%);
+      border-radius: 12px;
+      border: 2px solid var(--border-color);
+      overflow: hidden;
+      position: relative;
+    }
+
+    body.high-contrast .map-svg-container {
+      background-color: black;
+      border-color: var(--border-color);
+    }
+
+    .map-pin {
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .map-pin:hover {
+      transform: scale(1.3) translateY(-3px);
+    }
+
+    .map-pin.active circle.pin-glow {
+      fill: var(--accent-gold);
+      fill-opacity: 0.4;
+      stroke: var(--accent-gold);
+      r: 22px;
+      animation: pulse 1.8s infinite;
+    }
+
+    .map-pin.active path.pin-icon {
+      fill: var(--accent-gold);
+      stroke: var(--primary-forest);
+      stroke-width: 1.5;
+    }
+
+    @keyframes pulse {
+      0% { r: 12px; fill-opacity: 0.6; }
+      50% { r: 24px; fill-opacity: 0.1; }
+      100% { r: 12px; fill-opacity: 0.6; }
+    }
+
+    /* Simulated Chat Box */
+    .chat-card {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius);
+      padding: var(--card-padding);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .chat-owner-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chat-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--primary-leaf);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border: 2px solid var(--border-color);
+    }
+
+    .chat-owner-name {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .chat-status {
+      font-size: 0.8rem;
+      color: var(--primary-leaf);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .chat-status::before {
+      content: "●";
+      color: var(--primary-leaf);
+    }
+
+    .chat-messages {
+      height: 250px;
+      overflow-y: auto;
+      border: 2px solid var(--border-color);
+      background-color: var(--bg-cream);
+      border-radius: 10px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    body.high-contrast .chat-messages {
+      background-color: black;
+    }
+
+    .msg {
+      max-width: 85%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .msg.incoming {
+      align-self: flex-start;
+      background-color: white;
+      color: var(--text-dark);
+      border-bottom-left-radius: 2px;
+      border: 1px solid var(--border-color);
+    }
+
+    .msg.outgoing {
+      align-self: flex-end;
+      background-color: var(--primary-leaf);
+      color: white;
+      border-bottom-right-radius: 2px;
+    }
+
+    body.high-contrast .msg.incoming {
+      background-color: #121212;
+      border: 2px solid white;
+    }
+
+    body.high-contrast .msg.outgoing {
+      background-color: black;
+      border: 2px solid var(--primary-leaf);
+      color: var(--primary-leaf);
+    }
+
+    .chat-input-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .chat-suggestions-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .chat-suggestions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .btn-suggested-question {
+      background-color: var(--bg-cream);
+      border: 2px solid var(--border-color);
+      color: var(--text-dark);
+      padding: 8px 12px;
+      font-size: 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-family: inherit;
+    }
+
+    .btn-suggested-question:hover {
+      border-color: var(--primary-leaf);
+      background-color: hsl(90, 20%, 94%);
+    }
+
+    body.high-contrast .btn-suggested-question {
+      background-color: black;
+      border-color: white;
+    }
+
+    body.high-contrast .btn-suggested-question:hover {
+      border-color: var(--accent-gold);
+    }
+
+    /* Farm Info Cards (Right Column) */
+    .farms-tabs-header {
+      display: flex;
+      gap: 10px;
+      border-bottom: 3px solid var(--border-color);
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    .btn-farm-tab {
+      background-color: transparent;
+      border: none;
+      font-family: var(--font-title);
+      font-weight: 700;
+      font-size: 1.15rem;
+      padding: 10px 18px;
+      cursor: pointer;
+      color: var(--text-muted);
+      border-bottom: 4px solid transparent;
+      margin-bottom: -14px;
+      outline: none;
+      white-space: nowrap;
+    }
+
+    .btn-farm-tab:hover {
+      color: var(--primary-forest);
+    }
+
+    .btn-farm-tab.active {
+      color: var(--primary-leaf);
+      border-bottom-color: var(--primary-leaf);
+    }
+
+    body.high-contrast .btn-farm-tab.active {
+      color: var(--accent-gold);
+      border-bottom-color: var(--accent-gold);
+    }
+
+    .farm-detail-card {
+      background-color: var(--bg-white);
+      border-radius: var(--border-radius);
+      padding: var(--card-padding);
+      box-shadow: var(--shadow-md);
+      border: 2px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .farm-detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .farm-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .farm-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .farm-badge {
+      background-color: var(--bg-cream);
+      border: 2px solid var(--primary-leaf);
+      color: var(--primary-forest);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.high-contrast .farm-badge {
+      background-color: black;
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .farm-title-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .farm-name-text {
+      font-size: 2.2rem;
+      line-height: 1.2;
+    }
+
+    .farm-rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background-color: hsl(38, 75%, 92%);
+      border: 2px solid var(--accent-gold);
+      color: var(--primary-forest);
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 50px;
+    }
+
+    body.high-contrast .farm-rating-badge {
+      background-color: black;
+      border-color: var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    .farm-actions-top {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-top-action {
+      background-color: var(--bg-cream);
+      border: 2px solid var(--border-color);
+      color: var(--primary-forest);
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+    }
+
+    .btn-top-action:hover {
+      border-color: var(--primary-leaf);
+      background-color: hsl(90, 20%, 92%);
+    }
+
+    body.high-contrast .btn-top-action {
+      background-color: black;
+      border-color: white;
+      color: white;
+    }
+
+    body.high-contrast .btn-top-action:hover {
+      border-color: var(--accent-gold);
+    }
+
+    .farm-description-text {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      background-color: var(--bg-cream);
+      padding: 15px 20px;
+      border-radius: 10px;
+      border-left: 5px solid var(--accent-gold);
+    }
+
+    body.high-contrast .farm-description-text {
+      background-color: #121212;
+      border-color: var(--accent-gold);
+    }
+
+    /* Product Shelf Grid */
+    .catalog-section-title {
+      font-size: 1.45rem;
+      margin-top: 15px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .pricing-type-selector {
+      display: flex;
+      background-color: var(--bg-cream);
+      border-radius: 8px;
+      padding: 4px;
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-pricing-type {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-family: inherit;
+      color: var(--text-muted);
+    }
+
+    .btn-pricing-type.active {
+      background-color: var(--primary-leaf);
+      color: white;
+    }
+
+    body.high-contrast .btn-pricing-type.active {
+      background-color: var(--accent-gold);
+      color: black;
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-card {
+      background-color: var(--bg-white);
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .product-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .product-price-label {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--primary-leaf);
+    }
+
+    body.high-contrast .product-price-label {
+      color: var(--accent-gold);
+    }
+
+    .product-desc-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    .product-action-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .qty-picker {
+      display: flex;
+      align-items: center;
+      border: 2px solid var(--border-color);
+      border-radius: 8px;
+      background-color: var(--bg-cream);
+      overflow: hidden;
+    }
+
+    body.high-contrast .qty-picker {
+      background-color: black;
+    }
+
+    .btn-qty {
+      background-color: transparent;
+      border: none;
+      width: 32px;
+      height: 36px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      outline: none;
+      color: var(--text-dark);
+    }
+
+    .btn-qty:hover {
+      background-color: rgba(22, 43, 26, 0.05);
+    }
+
+    .qty-display {
+      width: 36px;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .btn-add-to-cart {
+      flex: 1;
+      background-color: var(--primary-leaf);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      height: 38px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-family: inherit;
+    }
+
+    .btn-add-to-cart:hover {
+      background-color: var(--primary-leaf-hover);
+    }
+
+    body.high-contrast .btn-add-to-cart {
+      background-color: black;
+      border: 2px solid var(--primary-leaf);
+      color: var(--primary-leaf);
+    }
+
+    body.high-contrast .btn-add-to-cart:hover {
+      background-color: var(--primary-leaf);
+      color: black;
+    }
+
+    /* Grading and Review Panel */
+    .reviews-section-title {
+      font-size: 1.45rem;
+      margin-top: 20px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .reviews-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .reviews-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .submit-review-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      background-color: var(--bg-cream);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    body.high-contrast .submit-review-form {
+      background-color: black;
+      border-color: var(--border-color);
+    }
+
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--primary-forest);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    body.high-contrast .form-label {
+      color: white;
+    }
+
+    .input-name {
+      background-color: var(--bg-white);
+      border: 2px solid var(--border-color);
+      color: var(--text-dark);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .input-name:focus {
+      border-color: var(--primary-leaf);
+    }
+
+    body.high-contrast .input-name {
+      background-color: black;
+      border-color: white;
+    }
+
+    .star-rating-selector {
+      display: flex;
+      gap: 6px;
+    }
+
+    .btn-star-rating {
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: hsl(0, 0%, 80%);
+      outline: none;
+    }
+
+    .btn-star-rating.active {
+      color: var(--accent-gold);
+    }
+
+    .textarea-review {
+      background-color: var(--bg-white);
+      border: 2px solid var(--border-color);
+      color: var(--text-dark);
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      height: 80px;
+      resize: vertical;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .textarea-review:focus {
+      border-color: var(--primary-leaf);
+    }
+
+    body.high-contrast .textarea-review {
+      background-color: black;
+      border-color: white;
+    }
+
+    .btn-submit-review {
+      background-color: var(--accent-gold);
+      color: var(--primary-forest);
+      border: none;
+      height: 40px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .btn-submit-review:hover {
+      background-color: var(--accent-gold-hover);
+    }
+
+    body.high-contrast .btn-submit-review {
+      background-color: black;
+      border: 2px solid var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    body.high-contrast .btn-submit-review:hover {
+      background-color: var(--accent-gold);
+      color: black;
+    }
+
+    .reviews-board {
+      height: 230px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 12px;
+      background-color: var(--bg-white);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    body.high-contrast .reviews-board {
+      background-color: black;
+    }
+
+    .review-item {
+      border-bottom: 1px dashed var(--border-color);
+      padding-bottom: 8px;
+      font-size: 0.9rem;
+    }
+
+    .review-item:last-child {
+      border-bottom: none;
+    }
+
+    .review-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .review-author {
+      font-weight: 700;
+      color: var(--primary-forest);
+    }
+
+    body.high-contrast .review-author {
+      color: white;
+    }
+
+    .review-stars {
+      color: var(--accent-gold);
+    }
+
+    .review-body {
+      color: var(--text-dark);
+      font-style: italic;
+    }
+
+    /* Floating Basket Footer */
+    .cart-drawer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--primary-forest);
+      color: white;
+      padding: 16px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 4px solid var(--accent-gold);
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.18);
+      z-index: 1000;
+    }
+
+    .cart-left {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .cart-bubble {
+      background-color: var(--accent-gold);
+      color: var(--primary-forest);
+      font-weight: 800;
+      font-size: 1.3rem;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cart-labels {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cart-total-title {
+      font-size: 0.8rem;
+      color: hsl(140, 10%, 80%);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cart-total-amount {
+      font-size: 1.4rem;
+      font-weight: 800;
+      font-family: var(--font-title);
+    }
+
+    .btn-checkout {
+      background-color: var(--accent-gold);
+      color: var(--primary-forest);
+      border: none;
+      padding: 0 30px;
+      height: 48px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: inherit;
+    }
+
+    .btn-checkout:hover {
+      background-color: var(--accent-gold-hover);
+    }
+
+    body.high-contrast .btn-checkout {
+      background-color: black;
+      border: 2px solid var(--accent-gold);
+      color: var(--accent-gold);
+    }
+
+    body.high-contrast .btn-checkout:hover {
+      background-color: var(--accent-gold);
+      color: black;
+    }
+
+    /* Custom Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 110px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: var(--primary-forest);
+      color: white;
+      padding: 16px 32px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* Modal Overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(22, 43, 26, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 3000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+
+    .modal-overlay.show {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .modal-content {
+      background-color: var(--bg-white);
+      border-radius: 20px;
+      border: 3px solid var(--border-color);
+      width: 90%;
+      max-width: 600px;
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      position: relative;
+      transform: translateY(30px);
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .modal-overlay.show .modal-content {
+      transform: translateY(0);
+    }
+
+    .btn-close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background-color: transparent;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-muted);
+      outline: none;
+    }
+
+    .modal-title {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    .modal-body {
+      max-height: 400px;
+      overflow-y: auto;
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+  </style>
+</head>
+<body class="senior-mode"> <!-- Active by default for senior accessibility -->
+
+  <!-- 1. Accessibility & Navigation Header -->
+  <header class="accessibility-bar">
+    <div class="brand-logo">
+      <!-- Leaf curves into a pin SVG -->
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5zm0-8.5c2.48 0 4.5 2.02 4.5 4.5 0 2.2-2.4 5.9-4.5 8.5-2.1-2.6-4.5-6.3-4.5-8.5 0-2.48 2.02-4.5 4.5-4.5zM7.5 9c0-2.48 2.02-4.5 4.5-4.5s4.5 2.02 4.5 4.5c0 2.5-2.5 6-4.5 8.5C9.5 15 7.5 11.5 7.5 9z" fill-rule="evenodd" clip-rule="evenodd"/>
+      </svg>
+      <span>TerraDirect</span>
+    </div>
+    <div class="access-buttons">
+      <!-- Narrator voice trigger -->
+      <button class="btn-access" id="btnVoice" onclick="playVoiceGuide()">
+        <span>🔊</span><span class="access-label-text">Voice Help</span>
+      </button>
+      <!-- Layout simplifier -->
+      <button class="btn-access" id="btnLayout" onclick="toggleSimpleLayout()">
+        <span>📄</span><span class="access-label-text">Simple View</span>
+      </button>
+      <!-- Contrast AAA toggle -->
+      <button class="btn-access" id="btnContrast" onclick="toggleContrast()">
+        <span>◐</span><span class="access-label-text">High Contrast</span>
+      </button>
+      <!-- Font sizing scaler (default active) -->
+      <button class="btn-access active" id="btnSenior" onclick="toggleSeniorMode()">
+        <span>👤</span><span class="access-label-text">Senior Mode</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- 2. Goal and Mission Banner -->
+  <section class="mission-header" id="secMission">
+    <div class="mission-container">
+      <h2 class="mission-tagline">Preserving European Private Family Farming</h2>
+      <p class="mission-text">
+        Every year, thousands of family farms disappear in the EU due to supermarket price squeezes and demographic succession crises. <strong>TerraDirect</strong> bypasses the corporate middlemen entirely. By charging farmers 0% transaction commission on a flat monthly membership, we protect thin agricultural margins and return 100% of purchase values directly to the countryside.
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. Country Policy & Local Law Selector -->
+  <section class="policy-selector-bar">
+    <div class="country-dropdown-container">
+      <span class="country-label">Country version:</span>
+      <select class="select-country" id="countrySelector" onchange="changeCountry()">
+        <option value="DE" selected>Deutschland (Germany)</option>
+        <option value="FR">France (France)</option>
+        <option value="NL">Nederland (Netherlands)</option>
+      </select>
+    </div>
+    <div class="policy-alert" id="policyNotice">
+      <span>⚖️</span>
+      <span id="policyText">Loading regulatory policies...</span>
+    </div>
+  </section>
+
+  <!-- 4. Main Two-Column Interactive Area -->
+  <main class="app-container">
+    <div class="main-grid">
+      
+      <!-- Left Column: Map & Chat Simulator -->
+      <div class="left-column">
+        
+        <!-- Interactive Vector Map -->
+        <div class="map-card">
+          <h3>Local Farm Map (EU Demo)</h3>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:10px;">Select a farm pin on the map to open their catalog, check distances, or chat with the family.</p>
+          
+          <div class="map-svg-container">
+            <svg viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="mapGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="var(--border-color)" stroke-width="0.5" />
+                </pattern>
+              </defs>
+              <rect width="350" height="250" fill="url(#mapGrid)" />
+              
+              <!-- Fictionalized EU coastline outline -->
+              <path d="M 20,40 Q 100,5 200,60 T 320,30 T 330,120 Q 300,160 250,190 T 150,220 Q 80,180 50,140 Z" fill="var(--primary-leaf)" fill-opacity="0.08" stroke="var(--primary-leaf)" stroke-width="1.5" stroke-dasharray="4,3" />
+              
+              <!-- Pin 1: Bavaria (Germany) -->
+              <g class="map-pin active" id="pin0" onclick="selectFarmTab(0)">
+                <circle class="pin-glow" cx="160" cy="115" r="14" />
+                <path class="pin-icon" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" transform="translate(148,93) scale(1)" fill="var(--primary-leaf)" stroke="white" stroke-width="1"/>
+                <text x="160" y="85" font-family="var(--font-title)" font-size="9.5" font-weight="bold" fill="var(--primary-forest)" text-anchor="middle">Hof Miller (DE)</text>
+              </g>
+              
+              <!-- Pin 2: Provence (France) -->
+              <g class="map-pin" id="pin1" onclick="selectFarmTab(1)">
+                <circle class="pin-glow" cx="130" cy="175" r="14" />
+                <path class="pin-icon" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" transform="translate(118,153) scale(1)" fill="var(--primary-leaf)" stroke="white" stroke-width="1"/>
+                <text x="130" y="145" font-family="var(--font-title)" font-size="9.5" font-weight="bold" fill="var(--primary-forest)" text-anchor="middle">Château Fontaine (FR)</text>
+              </g>
+              
+              <!-- Pin 3: South Holland (Netherlands) -->
+              <g class="map-pin" id="pin2" onclick="selectFarmTab(2)">
+                <circle class="pin-glow" cx="110" cy="70" r="14" />
+                <path class="pin-icon" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" transform="translate(98,48) scale(1)" fill="var(--primary-leaf)" stroke="white" stroke-width="1"/>
+                <text x="110" y="40" font-family="var(--font-title)" font-size="9.5" font-weight="bold" fill="var(--primary-forest)" text-anchor="middle">De Windmolen (NL)</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Chat Simulator -->
+        <div class="chat-card">
+          <div class="chat-header">
+            <div class="chat-owner-info">
+              <div class="chat-avatar" id="chatAvatar">J</div>
+              <div>
+                <div class="chat-owner-name" id="chatOwnerName">Farmer Johann</div>
+                <div class="chat-status">Online</div>
+              </div>
+            </div>
+            <button class="btn-access" style="padding:4px 8px; border-radius:6px; font-size:0.75rem;" onclick="speakChatHistory()">🔊 Read Chat</button>
+          </div>
+          
+          <div class="chat-messages" id="chatBox">
+            <!-- Populated by JS -->
+          </div>
+          
+          <div class="chat-input-panel">
+            <div class="chat-suggestions-title">Ask the Family:</div>
+            <div class="chat-suggestions" id="chatQuestionsList">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Farm Tab Panels, Catalog, & Reviews -->
+      <div class="right-column">
+        
+        <!-- Farm Selector Tab Buttons -->
+        <nav class="farms-tabs-header">
+          <button class="btn-farm-tab active" id="tab0" onclick="selectFarmTab(0)">🐄 Hof Miller (Dairy / DE)</button>
+          <button class="btn-farm-tab" id="tab1" onclick="selectFarmTab(1)">🏡 Château Fontaine (Hostel / FR)</button>
+          <button class="btn-farm-tab" id="tab2" onclick="selectFarmTab(2)">🍎 De Windmolen (Orchards / NL)</button>
+        </nav>
+
+        <!-- Active Farm Information Card -->
+        <article class="farm-detail-card">
+          <div class="farm-detail-header">
+            <div class="farm-meta">
+              <div class="farm-badges" id="farmBadgeRow">
+                <!-- Badges populated by JS -->
+              </div>
+              <div class="farm-title-row">
+                <h1 class="farm-name-text" id="farmName">Bio-Farm Miller</h1>
+                <div class="farm-rating-badge">
+                  <span>★</span><span id="farmAverageRating">4.8</span>
+                </div>
+              </div>
+              <p style="font-size:0.9rem; color:var(--text-muted);" id="farmLocationText">📍 Müller-Hof Road 14, Kirchseeon, Germany</p>
+            </div>
+            
+            <div class="farm-actions-top">
+              <button class="btn-top-action" onclick="callOwner()">
+                <span>📞</span><span>Call Owner</span>
+              </button>
+            </div>
+          </div>
+
+          <p class="farm-description-text" id="farmDescription">
+            For three generations, our family has farmed these pastures in the Bavarian foothills. We specialize in organic grass-fed dairy products, fresh eggs, and home-grown potatoes, placing ecological stewardship at the center of everything we do.
+          </p>
+
+          <!-- Product / Service Catalog section -->
+          <div class="catalog-section-title">
+            <span>Catalog: Products & Services</span>
+            <div class="pricing-type-selector">
+              <button class="btn-pricing-type active" id="btnPriceB2C" onclick="togglePricingType('B2C')">B2C Retail</button>
+              <button class="btn-pricing-type" id="btnPriceB2B" onclick="togglePricingType('B2B')">B2B Wholesale</button>
+            </div>
+          </div>
+
+          <div class="catalog-grid" id="productGrid">
+            <!-- Products cards populated by JS -->
+          </div>
+
+          <!-- Reviews Board & Grading Form -->
+          <h3 class="reviews-section-title">Community Feedback & Trust</h3>
+          
+          <div class="reviews-layout">
+            
+            <!-- Submit Review Form -->
+            <div class="submit-review-form">
+              <div class="form-row">
+                <span class="form-label">Your Name:</span>
+                <input type="text" class="input-name" id="reviewerName" placeholder="e.g. Clara">
+              </div>
+              
+              <div class="form-row">
+                <span class="form-label">Grade the farm:</span>
+                <div class="star-rating-selector" id="starSelectorRow">
+                  <button class="btn-star-rating active" onclick="setRatingSelection(1)">★</button>
+                  <button class="btn-star-rating active" onclick="setRatingSelection(2)">★</button>
+                  <button class="btn-star-rating active" onclick="setRatingSelection(3)">★</button>
+                  <button class="btn-star-rating active" onclick="setRatingSelection(4)">★</button>
+                  <button class="btn-star-rating active" onclick="setRatingSelection(5)">★</button>
+                </div>
+              </div>
+              
+              <div class="form-row">
+                <span class="form-label">Comments:</span>
+                <textarea class="textarea-review" id="reviewComment" placeholder="Explain your experience with their services or products..."></textarea>
+              </div>
+              
+              <button class="btn-submit-review" onclick="submitReview()">Submit Review</button>
+            </div>
+
+            <!-- Scrollable Reviews Board -->
+            <div class="reviews-board" id="reviewsBoardBox">
+              <!-- Reviews list populated by JS -->
+            </div>
+
+          </div>
+
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- 5. Floating Cart Drawer -->
+  <footer class="cart-drawer">
+    <div class="cart-left">
+      <div class="cart-bubble" id="cartBadgeDisplay">0</div>
+      <div class="cart-labels">
+        <span class="cart-total-title">Total in Direct Escrow</span>
+        <span class="cart-total-amount" id="cartTotalDisplay">€0.00</span>
+      </div>
+    </div>
+    <button class="btn-checkout" onclick="openCheckoutModal()">
+      <span>🛒</span><span>Order Direct Now</span>
+    </button>
+  </footer>
+
+  <!-- Toast Notification Overlay -->
+  <div class="toast" id="toastMessage">Added to basket!</div>
+
+  <!-- Modal window for Checkout confirmation & policy summary -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeCheckoutModal()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="btn-close-modal" onclick="closeCheckoutModal()">×</button>
+      <h2 class="modal-title">Complete Escrow Order</h2>
+      <div class="modal-body" id="modalBodyContent">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Application Javascript Core -->
+  <script>
+    // Fictional dataset of three farms
+    const FARMS_DATA = [
+      {
+        id: 0,
+        name: "Bio-Farm Miller",
+        ownerName: "Farmer Johann",
+        avatar: "J",
+        phone: "+49 89 1234567",
+        location: "Müller-Hof Road 14, 85614 Kirchseeon, Bavaria, Germany",
+        badges: ["Certified Organic", "Grass-fed Dairy", "3rd Generation", "📍 12 km Away"],
+        description: "For three generations, our family has farmed these pastures in the Bavarian foothills. We specialize in organic grass-fed dairy products, fresh eggs, and home-grown potatoes, placing ecological stewardship at the center of everything we do. We manage our products locally and supply Munich neighborhoods.",
+        products: [
+          { id: 101, name: "Organic Raw Milk", desc: "Fresh, unpasteurized organic milk straight from our grass-fed dairy herd. Cold-chain guaranteed.", unit: "Liter", b2cPrice: 1.80, b2bPrice: 1.40 },
+          { id: 102, name: "Golden Potatoes", desc: "Earthy, golden potatoes harvested this week. Excellent for baking, roasting, or potato salads.", unit: "kg", b2cPrice: 2.50, b2bPrice: 1.90 },
+          { id: 103, name: "Fresh Orchard Eggs", desc: "Eggs gathered daily from our free-range hens roaming our apple orchards.", unit: "10-pack", b2cPrice: 4.20, b2bPrice: 3.50 }
+        ],
+        chatQuestions: [
+          { q: "Is the raw milk safe for young children?", a: "Yes, our raw milk undergoes daily laboratory checks and is kept in active cold-chain storage. However, for infants under one year, we advise light boiling as a precaution." },
+          { q: "When are your delivery days for Munich?", a: "We deliver directly to Munich East and Center every Wednesday and Saturday morning. Order by 5:00 PM the night before to guarantee your slot!" },
+          { q: "Can I bring my kids to see the cows?", a: "Of course! We love visitors. We have open farm visits every Saturday from 2:00 PM to 5:00 PM. Just call ahead so we can prepare some fresh cider." }
+        ],
+        defaultReviews: [
+          { author: "Helga", rating: 5, text: "The raw milk tastes exactly like what I had in my childhood. And the fonts on this page are so easy to read!" },
+          { author: "Stefan", rating: 4, text: "Great quality potatoes. Quick order, simple direct checkout. Love that the farmer gets the full amount." }
+        ]
+      },
+      {
+        id: 1,
+        name: "Château de la Fontaine",
+        ownerName: "Elise Laurent",
+        avatar: "E",
+        phone: "+33 4 90 12 34 56",
+        location: "Chemin des Lavandes, 84220 Gordes, Provence, France",
+        badges: ["Eco-Hostel", "Biodynamic Cert.", "Artisanal Honey", "📍 680 km Away"],
+        description: "Set against the backdrop of Luberon's rolling lavender hills, Château de la Fontaine is a biodynamic homestead and green hostel. We invite guests to stay in our restored stone guesthouse, buy our artisanal forest honeys, and learn traditional goat cheese-making.",
+        products: [
+          { id: 201, name: "Green Hostel Stay (Night)", desc: "A cozy room in our historic stone eco-lodge with organic farm-fresh breakfasts included.", unit: "Night", b2cPrice: 85.00, b2bPrice: 75.00 },
+          { id: 202, name: "Lavender Wildflower Honey", desc: "Aromatic, pure, cold-pressed lavender wildflower honey harvested directly from our hives.", unit: "500g jar", b2cPrice: 9.50, b2bPrice: 7.80 },
+          { id: 203, name: "Artisanal Goat Cheese Wheel", desc: "Hand-pressed, aged goat cheese wrapped in chestnut leaves. Made on-site in Gordes.", unit: "200g wheel", b2cPrice: 6.80, b2bPrice: 5.50 }
+        ],
+        chatQuestions: [
+          { q: "Do you have hostel availability next weekend?", a: "Bonjour! Yes, we have two double rooms available for next weekend. Breakfast is included and features fresh products from our gardens." },
+          { q: "Is the goat cheese workshop open to kids?", a: "Yes! Children absolutely love molding the goat cheese. The workshop runs every Tuesday afternoon at 3:00 PM and is open to families." },
+          { q: "Is the hostel pet-friendly?", a: "Yes, we allow friendly dogs! We just ask that you keep them on a leash around the goats and chickens for safety." }
+        ],
+        defaultReviews: [
+          { author: "Laura", rating: 5, text: "Unbelievable lavender fields and the goat cheese workshop was so meditative! The guesthouse was clean and serene." },
+          { author: "Martin", rating: 5, text: "Outstanding rustic design aesthetics. Elise was extremely welcoming. We ordered two boxes of lavender honey to go." }
+        ]
+      },
+      {
+        id: 2,
+        name: "De Windmolen Farm",
+        ownerName: "Lars van der Meer",
+        avatar: "L",
+        phone: "+31 75 612 3456",
+        location: "Molenweg 8, 1509 AW Zaanse Schans, Netherlands",
+        badges: ["Wind-powered", "Heirloom Orchard", "B2B Supplier", "📍 720 km Away"],
+        description: "Powered by our historic windmill, our farm specializes in cultivating heirloom Dutch apple varieties, strawberries, and organic ciders. We supply local cafes in South Holland, host school educational tours, and run a poultry pasture.",
+        products: [
+          { id: 301, name: "Organic Elstar Apples", desc: "Crisp, sweet, and slightly tart heirloom apples hand-harvested from our wind-powered orchards.", unit: "3kg bag", b2cPrice: 5.50, b2bPrice: 4.20 },
+          { id: 302, name: "Sparkling Apple Cider", desc: "Fresh-pressed, naturally carbonated non-alcoholic cider made strictly from organic wind-crushed apples.", unit: "750ml bottle", b2cPrice: 4.80, b2bPrice: 3.80 },
+          { id: 303, name: "Pastured Whole Chicken", desc: "Free-range, organic whole chicken raised on fresh grass and natural grain under orchard trees.", unit: "1.5kg", b2cPrice: 16.50, b2bPrice: 13.50 }
+        ],
+        chatQuestions: [
+          { q: "Are your apples sprayed with pesticides?", a: "Never. We are strictly wind-powered and biodynamic. We use natural predatory insects and orchard nesting ducks to control pests." },
+          { q: "Can we order cider in bulk for events?", a: "Absolutely! We supply wholesale quantities. B2B wholesale pricing applies automatically if selected, and we deliver in crate batches." },
+          { q: "Do you host educational school tours?", a: "Yes, we run school farm tours every Monday and Thursday morning. Kids learn how the windmill crushes apples and helps pump water." }
+        ],
+        defaultReviews: [
+          { author: "Markus", rating: 5, text: "Best Elstar apples in Zaanse Schans! Real organic certification path and transparent pricing. Highly recommended." },
+          { author: "Paul", rating: 4, text: "We buy their cider wholesale for our restaurant. Very reliable delivery, automated invoicing tool is extremely neat." }
+        ]
+      }
+    ];
+
+    // Country-specific regulations and VAT simulator data
+    const COUNTRY_POLICIES = {
+      DE: {
+        text: "DE Version: Compliant with BDSG & GDPR. 19% MwSt / 7% reduced agricultural VAT calculated automatically. Orders secured via Stripe Escrow GmbH.",
+        vatRateB2C: 0.07,
+        escrowProvider: "Stripe Escrow Germany GmbH",
+        lawNotice: "Agrar-Direktvermarktungsgesetz compliant."
+      },
+      FR: {
+        text: "FR Version: Conforme à la RGPD et Loi CNIL. TVA agricole réduite de 5.5% appliquée. Transactions sécurisées sous le régime de consignation Mangopay SA.",
+        vatRateB2C: 0.055,
+        escrowProvider: "Mangopay SA (Régulation ACPR)",
+        lawNotice: "Loi Egalim (protection des marges des producteurs)."
+      },
+      NL: {
+        text: "NL Version: AVG compliant. 9% BTW tarief voor agrarische goederen toegepast. Escrow-transacties afgehandeld via Triodos Bank derdengeldenrekening.",
+        vatRateB2C: 0.09,
+        escrowProvider: "Triodos Escrow Stichting",
+        lawNotice: "Korteketenregeling (Short Chain Protection Agreement)."
+      }
+    };
+
+    // State Variables
+    let currentFarmIdx = 0;
+    let selectedRating = 5;
+    let pricingType = "B2C"; // B2C or B2B
+    let selectedCountry = "DE";
+    let cart = []; // items format: { product, qty, farmName, pricingType }
+
+    // Init App
+    window.addEventListener('DOMContentLoaded', () => {
+      // Initialize ratings and reviews from localStorage if available, else load defaults
+      FARMS_DATA.forEach(farm => {
+        const storedReviews = localStorage.getItem(`reviews_farm_${farm.id}`);
+        if (storedReviews) {
+          farm.reviews = JSON.parse(storedReviews);
+        } else {
+          farm.reviews = [...farm.defaultReviews];
+          localStorage.setItem(`reviews_farm_${farm.id}`, JSON.stringify(farm.reviews));
+        }
+      });
+
+      changeCountry();
+      renderApp();
+    });
+
+    // Toggle Senior accessibility Mode
+    function toggleSeniorMode() {
+      const btn = document.getElementById('btnSenior');
+      document.body.classList.toggle('senior-mode');
+      btn.classList.toggle('active');
+      showToast(document.body.classList.contains('senior-mode') ? "Senior Mode (Enlarged UI) Activated" : "Standard UI Mode Activated");
+    }
+
+    // Toggle High Contrast Mode
+    function toggleContrast() {
+      const btn = document.getElementById('btnContrast');
+      document.body.classList.toggle('high-contrast');
+      btn.classList.toggle('active');
+      showToast(document.body.classList.contains('high-contrast') ? "High Contrast Mode Enabled" : "Standard Colors Restored");
+    }
+
+    // Toggle Simple Layout Mode
+    function toggleSimpleLayout() {
+      const btn = document.getElementById('btnLayout');
+      document.body.classList.toggle('simple-layout');
+      btn.classList.toggle('active');
+      showToast(document.body.classList.contains('simple-layout') ? "Simple Screen Layout Enabled" : "Full Dashboard Layout Restored");
+    }
+
+    // Voice assistance narrator
+    function playVoiceGuide() {
+      if ('speechSynthesis' in window) {
+        // Cancel active narration
+        window.speechSynthesis.cancel();
+        
+        const farm = FARMS_DATA[currentFarmIdx];
+        const countryText = COUNTRY_POLICIES[selectedCountry].text;
+        
+        const narrationText = `
+          Welcome to TerraDirect. We are viewing ${farm.name} located in ${farm.location}.
+          Owner ${farm.ownerName} states: "${farm.description}".
+          Active pricing is set to ${pricingType === "B2C" ? "Retail Customers" : "Wholesale Businesses"}.
+          Regulatory status is: ${countryText}.
+          Use the buttons at the top of your screen to adjust font sizes or toggle high contrast.
+        `;
+
+        const speech = new SpeechSynthesisUtterance(narrationText);
+        speech.lang = 'en-US';
+        speech.rate = 0.90; // Slightly slower, highly intelligible pace for older adults
+        window.speechSynthesis.speak(speech);
+        showToast("🔊 Voice assistance narration playing...");
+      } else {
+        alert("Sorry, your web browser does not support Speech Synthesis. Please use a modern browser like Chrome, Edge, or Safari.");
+      }
+    }
+
+    // Voice assist for simulated chat logs
+    function speakChatHistory() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const chatBox = document.getElementById('chatBox');
+        const text = chatBox.innerText;
+        if (!text.trim()) return;
+        const speech = new SpeechSynthesisUtterance("Reading chat messages: " + text);
+        speech.lang = 'en-US';
+        speech.rate = 0.92;
+        window.speechSynthesis.speak(speech);
+      }
+    }
+
+    // Change Country Selector
+    function changeCountry() {
+      selectedCountry = document.getElementById('countrySelector').value;
+      const policyTextNode = document.getElementById('policyText');
+      policyTextNode.innerText = COUNTRY_POLICIES[selectedCountry].text;
+      
+      // Update cart display
+      updateCartDisplay();
+    }
+
+    // Tab switcher between farms
+    function selectFarmTab(farmIdx) {
+      currentFarmIdx = farmIdx;
+      
+      // Update Tab button classes
+      for (let i = 0; i < FARMS_DATA.length; i++) {
+        const tabBtn = document.getElementById(`tab${i}`);
+        const pin = document.getElementById(`pin${i}`);
+        if (tabBtn) tabBtn.classList.toggle('active', i === farmIdx);
+        if (pin) pin.classList.toggle('active', i === farmIdx);
+      }
+      
+      renderApp();
+      // Scroll right column farm details into view on mobile
+      if (window.innerWidth <= 1024) {
+        document.getElementById('farmName').scrollIntoView({ behavior: 'smooth' });
+      }
+      showToast(`Selected ${FARMS_DATA[farmIdx].name}`);
+    }
+
+    // Toggle catalog B2C / B2B pricing
+    function togglePricingType(type) {
+      pricingType = type;
+      document.getElementById('btnPriceB2C').classList.toggle('active', type === 'B2C');
+      document.getElementById('btnPriceB2B').classList.toggle('active', type === 'B2B');
+      
+      renderProducts();
+      showToast(`Switched catalog to ${type === 'B2C' ? 'Retail' : 'Wholesale'} pricing`);
+    }
+
+    // Render active Farm details, products, chat logs, reviews
+    function renderApp() {
+      const farm = FARMS_DATA[currentFarmIdx];
+      
+      // Metadata
+      document.getElementById('farmName').innerText = farm.name;
+      document.getElementById('farmLocationText').innerText = `📍 ${farm.location}`;
+      document.getElementById('farmDescription').innerText = farm.description;
+      
+      // Owner info in Chat
+      document.getElementById('chatOwnerName').innerText = farm.ownerName;
+      document.getElementById('chatAvatar').innerText = farm.avatar;
+      
+      // Badges
+      const badgeRow = document.getElementById('farmBadgeRow');
+      badgeRow.innerHTML = '';
+      farm.badges.forEach(b => {
+        const span = document.createElement('span');
+        span.className = 'farm-badge';
+        span.innerText = b;
+        badgeRow.appendChild(span);
+      });
+
+      // Products & Chat suggestions
+      renderProducts();
+      initChatHistory();
+      renderReviewsBoard();
+      
+      // Update average rating text
+      updateAverageRatingDisplay();
+    }
+
+    // Render products catalog grid
+    function renderProducts() {
+      const farm = FARMS_DATA[currentFarmIdx];
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = '';
+
+      farm.products.forEach(p => {
+        const price = pricingType === 'B2C' ? p.b2cPrice : p.b2bPrice;
+        
+        // Find existing quantity in cart
+        const cartItem = cart.find(item => item.product.id === p.id && item.pricingType === pricingType);
+        const qty = cartItem ? cartItem.qty : 0;
+
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div class="product-header-row">
+            <h4 class="product-title">${p.name}</h4>
+            <span class="product-price-label">€${price.toFixed(2)} <small style="font-weight:normal; font-size:0.75rem;">/ ${p.unit}</small></span>
+          </div>
+          <p class="product-desc-text">${p.desc}</p>
+          <div class="product-action-row">
+            <div class="qty-picker">
+              <button class="btn-qty" onclick="changeProductQty(${p.id}, -1)">-</button>
+              <div class="qty-display" id="qty-display-${p.id}">${qty}</div>
+              <button class="btn-qty" onclick="changeProductQty(${p.id}, 1)">+</button>
+            </div>
+            <button class="btn-add-to-cart" onclick="addProductToCart(${p.id})">
+              <span>➕</span><span>Add to Basket</span>
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Add product to cart
+    function addProductToCart(productId) {
+      const farm = FARMS_DATA[currentFarmIdx];
+      const p = farm.products.find(prod => prod.id === productId);
+      const displayQty = parseInt(document.getElementById(`qty-display-${productId}`).innerText) || 1;
+      
+      const qtyToAdd = displayQty === 0 ? 1 : displayQty;
+      
+      const existingItem = cart.find(item => item.product.id === productId && item.pricingType === pricingType);
+      
+      if (existingItem) {
+        existingItem.qty = existingItem.qty + (displayQty === 0 ? 1 : 0);
+      } else {
+        cart.push({
+          product: p,
+          qty: qtyToAdd,
+          farmName: farm.name,
+          pricingType: pricingType
+        });
+      }
+
+      showToast(`Added ${p.name} to basket!`);
+      updateCartDisplay();
+      renderProducts();
+    }
+
+    // Modify quantity picker state
+    function changeProductQty(productId, delta) {
+      const displayNode = document.getElementById(`qty-display-${productId}`);
+      let currentVal = parseInt(displayNode.innerText) || 0;
+      currentVal = Math.max(0, currentVal + delta);
+      displayNode.innerText = currentVal;
+      
+      // If item is already in cart, update cart quantity directly
+      const cartItem = cart.find(item => item.product.id === productId && item.pricingType === pricingType);
+      if (cartItem) {
+        cartItem.qty = currentVal;
+        if (cartItem.qty <= 0) {
+          cart = cart.filter(item => !(item.product.id === productId && item.pricingType === pricingType));
+        }
+        updateCartDisplay();
+      }
+    }
+
+    // Calculate cart sum and update UI drawer
+    function updateCartDisplay() {
+      let totalAmount = 0;
+      let totalItemsCount = 0;
+
+      cart.forEach(item => {
+        const price = item.pricingType === 'B2C' ? item.product.b2cPrice : item.product.b2bPrice;
+        totalAmount += price * item.qty;
+        totalItemsCount += item.qty;
+      });
+      
+      document.getElementById('cartBadgeDisplay').innerText = totalItemsCount;
+      document.getElementById('cartTotalDisplay').innerText = `€${totalAmount.toFixed(2)}`;
+    }
+
+    // Open/Close checkout confirmation modal
+    function openCheckoutModal() {
+      if (cart.length === 0) {
+        showToast("Your basket is empty. Please select products first!");
+        return;
+      }
+
+      const modalOverlay = document.getElementById('modalOverlay');
+      const bodyContent = document.getElementById('modalBodyContent');
+      
+      const policy = COUNTRY_POLICIES[selectedCountry];
+      
+      let itemsListHtml = '';
+      let subtotal = 0;
+      
+      cart.forEach(item => {
+        const price = item.pricingType === 'B2C' ? item.product.b2cPrice : item.product.b2bPrice;
+        const lineTotal = price * item.qty;
+        subtotal += lineTotal;
+        itemsListHtml += `
+          <div style="display:flex; justify-content:space-between; padding:6px 0; border-bottom:1px dashed var(--border-color); font-size:0.95rem;">
+            <span><strong>${item.qty}x</strong> ${item.product.name} (${item.pricingType})</span>
+            <span>€${lineTotal.toFixed(2)}</span>
+          </div>
+        `;
+      });
+
+      // Calculate VAT included
+      const vatAmount = subtotal * policy.vatRateB2C;
+      const totalCost = subtotal;
+
+      bodyContent.innerHTML = `
+        <div style="display:flex; flex-direction:column; gap:15px;">
+          <p style="font-size:0.95rem; color:var(--text-muted);">Confirming transaction with B2C/B2B direct trade protections.</p>
+          
+          <div style="background-color:var(--bg-cream); border:1px solid var(--border-color); border-radius:10px; padding:15px; display:flex; flex-direction:column; gap:8px;">
+            <h4 style="font-size:1.1rem; border-bottom:1px solid var(--border-color); padding-bottom:4px; margin-bottom:5px;">Invoice Summary</h4>
+            ${itemsListHtml}
+            <div style="display:flex; justify-content:space-between; margin-top:8px; font-weight:700; font-size:1.1rem; color:var(--primary-forest);">
+              <span>Total Price:</span>
+              <span>€${totalCost.toFixed(2)}</span>
+            </div>
+            <div style="font-size:0.8rem; color:var(--text-muted); margin-top:5px; text-align:right;">
+              Includes local agricultural VAT (${(policy.vatRateB2C * 100).toFixed(1)}%): €${vatAmount.toFixed(2)}
+            </div>
+          </div>
+
+          <div style="border-left:4px solid var(--accent-gold); padding-left:12px; font-size:0.85rem; color:var(--text-muted); display:flex; flex-direction:column; gap:6px;">
+            <div><strong>SaaS Commission Protection:</strong> €0.00 platform fee. 100% of these funds flow to the farm.</div>
+            <div><strong>Custodial Escrow Agent:</strong> ${policy.escrowProvider}</div>
+            <div><strong>Legal Compliance:</strong> ${policy.lawNotice}</div>
+          </div>
+
+          <p style="font-size:0.95rem;">Please check the delivery/collection route schedule or scan the QR code at delivery point to release funds.</p>
+
+          <button class="btn-primary" style="margin-top:10px; width:100%; height:46px;" onclick="completeOrderEscrow()">
+            Confirm Order & Escrow Funds
+          </button>
+        </div>
+      `;
+
+      modalOverlay.classList.add('show');
+    }
+
+    function closeCheckoutModal() {
+      document.getElementById('modalOverlay').classList.remove('show');
+    }
+
+    function completeOrderEscrow() {
+      closeCheckoutModal();
+      alert(`Success! Funds secured in ${COUNTRY_POLICIES[selectedCountry].escrowProvider} escrow. The farmer has been notified via B2C/B2B SMS fallback. Relaying transaction confirmation.`);
+      cart = [];
+      updateCartDisplay();
+      renderProducts();
+      showToast("Order Placed Successfully!");
+    }
+
+    // Call owner popup
+    function callOwner() {
+      const farm = FARMS_DATA[currentFarmIdx];
+      alert(`Calling ${farm.ownerName} directly at ${farm.phone}. Voice fallback active.`);
+    }
+
+    // Simulated Chat Engine
+    function initChatHistory() {
+      const farm = FARMS_DATA[currentFarmIdx];
+      const chatBox = document.getElementById('chatBox');
+      chatBox.innerHTML = '';
+
+      // Set initial greeting
+      const greetMsg = document.createElement('div');
+      greetMsg.className = 'msg incoming';
+      greetMsg.innerText = `Hello! I am ${farm.ownerName} from ${farm.name}. Feel free to select any question below to message me regarding our services, organic methods, or agritourism bookings.`;
+      chatBox.appendChild(greetMsg);
+
+      // Set suggested questions
+      const suggestionsBox = document.getElementById('chatQuestionsList');
+      suggestionsBox.innerHTML = '';
+
+      farm.chatQuestions.forEach((qObj, idx) => {
+        const btn = document.createElement('button');
+        btn.className = 'btn-suggested-question';
+        btn.innerText = qObj.q;
+        btn.onclick = () => sendChatMessage(qObj.q, qObj.a);
+        suggestionsBox.appendChild(btn);
+      });
+      
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    function sendChatMessage(question, answer) {
+      const chatBox = document.getElementById('chatBox');
+      
+      // User message
+      const userMsg = document.createElement('div');
+      userMsg.className = 'msg outgoing';
+      userMsg.innerText = question;
+      chatBox.appendChild(userMsg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Simulated typing delay
+      setTimeout(() => {
+        const replyMsg = document.createElement('div');
+        replyMsg.className = 'msg incoming';
+        replyMsg.innerText = answer;
+        chatBox.appendChild(replyMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        showToast("New message received!");
+      }, 700);
+    }
+
+    // Reviews board functions
+    function renderReviewsBoard() {
+      const farm = FARMS_DATA[currentFarmIdx];
+      const board = document.getElementById('reviewsBoardBox');
+      board.innerHTML = '';
+
+      if (farm.reviews.length === 0) {
+        board.innerHTML = `<div style="text-align:center; padding:30px; color:var(--text-muted); font-size:0.95rem;">No reviews submitted yet. Be the first to grade this farm!</div>`;
+        return;
+      }
+
+      farm.reviews.forEach(r => {
+        const item = document.createElement('div');
+        item.className = 'review-item';
+        
+        let starsHtml = '';
+        for (let i = 1; i <= 5; i++) {
+          starsHtml += i <= r.rating ? '★' : '☆';
+        }
+
+        item.innerHTML = `
+          <div class="review-item-header">
+            <span class="review-author">${r.author}</span>
+            <span class="review-stars">${starsHtml}</span>
+          </div>
+          <p class="review-body">"${r.text}"</p>
+        `;
+        board.appendChild(item);
+      });
+    }
+
+    // Star selector UI logic
+    function setRatingSelection(val) {
+      selectedRating = val;
+      const stars = document.getElementById('starSelectorRow').children;
+      for (let i = 0; i < 5; i++) {
+        stars[i].classList.toggle('active', i < val);
+      }
+    }
+
+    // Submit review
+    function submitReview() {
+      const nameInput = document.getElementById('reviewerName');
+      const commentInput = document.getElementById('reviewComment');
+      
+      const author = nameInput.value.trim() || 'Anonymous';
+      const text = commentInput.value.trim();
+
+      if (!text) {
+        alert("Please write a short comment before submitting your review.");
+        return;
+      }
+
+      const farm = FARMS_DATA[currentFarmIdx];
+      const newReview = { author, rating: selectedRating, text };
+      
+      farm.reviews.unshift(newReview); // add to top of list
+      localStorage.setItem(`reviews_farm_${farm.id}`, JSON.stringify(farm.reviews));
+
+      // Reset Form inputs
+      nameInput.value = '';
+      commentInput.value = '';
+      setRatingSelection(5);
+
+      renderReviewsBoard();
+      updateAverageRatingDisplay();
+      showToast("Thank you for your rating!");
+    }
+
+    // Update Average Rating Displays
+    function updateAverageRatingDisplay() {
+      const farm = FARMS_DATA[currentFarmIdx];
+      let sum = 0;
+      farm.reviews.forEach(r => sum += r.rating);
+      
+      const avg = farm.reviews.length > 0 ? (sum / farm.reviews.length).toFixed(1) : "0.0";
+      
+      document.getElementById('farmAverageRating').innerText = avg;
+    }
+
+    // Custom Toast feedback show
+    function showToast(message) {
+      const toast = document.getElementById('toastMessage');
+      toast.innerText = message;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+  </script>
+</body>
+</html>
