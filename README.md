@@ -10,7 +10,7 @@ This repository contains the interactive web application demo, visual assets, st
 
 ## 🌐 Live GitHub Pages Demo
 Once you deploy this repository, it will be accessible globally at:
-`https://<your-username>.github.io/<your-repository-name>/`
+`[https://<your-username>.github.io/<your-repository-name>/](https://var0a.github.io/TerraDirect/)`
 
 ---
 
